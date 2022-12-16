@@ -1,12 +1,24 @@
-wine = pd.read_csv("/Users/jonathanhill/Desktop/CS260Final/winequality-red.csv") 
+df = pd.read_csv("/Users/jonathanhill/Desktop/CS260Final/winequality-red.csv") 
 plt.subplots(figsize = (20,17))
 ## This creates the heatmap ## 
 heatmap = sns.heatmap(df.corr(), vmin=-1, vmax=1, annot=True, cmap='BrBG')
 plt.title("Red Wine Data Heatmap", fontsize= 35, fontweight= "bold")
-plt.savefig("new.png")
+plt.savefig("Heatmap.png")
 
 ## This creates the histogram of the red wine quality scores ##
-fig = px.histogram(wine,x='quality')
+fig = px.histogram(df,x='quality')
 fig.title('Quality Scores')
 fig.ylabel('observations')
 fig.show()
+
+df = pd.read_csv("winequality-red.csv")
+print(df.head()) #show first few rows
+## Creates the figures comparing different variables' affect on quality##
+sns.barplot(x ="quality", y ="sulphates", capsize=.1, data = df)
+plt.show()
+sns.barplot(x ="quality", y ="citric acid", capsize=.1, data = df)
+plt.show()
+sns.barplot(x ="quality", y ="volatile acidity", capsize=.1, data = df)
+plt.show()
+sns.barplot(x ="quality", y ="alcohol", capsize=.1, data = df)
+plt.show()
