@@ -1,0 +1,12 @@
+wine = pd.read_csv("/Users/jonathanhill/Desktop/CS260Final/winequality-red.csv") 
+plt.subplots(figsize = (20,17))
+## This creates the heatmap ## 
+heatmap = sns.heatmap(df.corr(), vmin=-1, vmax=1, annot=True, cmap='BrBG')
+plt.title("Red Wine Data Heatmap", fontsize= 35, fontweight= "bold")
+plt.savefig("new.png")
+
+## This creates the histogram of the red wine quality scores ##
+fig = px.histogram(wine,x='quality')
+fig.title('Quality Scores')
+fig.ylabel('observations')
+fig.show()
